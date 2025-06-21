@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Grilled Chicken",
+        "recipe": "Tender grilled chicken served with roasted vegetables.",
+        "img": "https://www.budgetbytes.com/wp-content/uploads/2024/06/Grilled-Chicken-Overhead-500x500.jpg",
+        "category": "Main Course",
+        "price": 250
+    },
+    {
+        "id": 2,
+        "name": "Spaghetti Carbonara",
+        "recipe": "Creamy pasta tossed with eggs, cheese, and crispy bacon.",
+        "img": "https://www.sipandfeast.com/wp-content/uploads/2022/09/spaghetti-carbonara-recipe-snippet.jpg",
+        "category": "Pasta",
+        "price": 220
+    },
+    {
+        "id": 3,
+        "name": "Veggie Pizza",
+        "recipe": "Crispy crust topped with fresh vegetables and mozzarella.",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzDXUJ38GqbEnLh0wJbXfEz2tV6thEpGHCdw&s",
+        "category": "Pizza",
+        "price": 300
+    },
+    {
+        "id": 4,
+        "name": "Caesar Salad",
+        "recipe": "Romaine lettuce with Caesar dressing, croutons, and cheese.",
+        "img": "https://www.dontgobaconmyheart.co.uk/wp-content/uploads/2023/01/caesar-salad-crispy-chicken.jpg",
+        "category": "Salad",
+        "price": 180
+    },
+    {
+        "id": 5,
+        "name": "Beef Burger",
+        "recipe": "Juicy beef patty with lettuce, tomato, and house sauce.",
+        "img": "https://secretrecipebd.com/wp-content/uploads/2022/08/DD-BEEF-BURGER-.jpg",
+        "category": "Burger",
+        "price": 270
+    },
+    {
+        "id": 6,
+        "name": "Chocolate Lava Cake",
+        "recipe": "Warm chocolate cake with gooey center and vanilla ice cream.",
+        "img": "https://www.carnation.co.uk/sites/default/files/2024-02/Recipe%20Image%20-%20Tablet%20%2847%29.png",
+        "category": "Dessert",
+        "price": 160
+    }
+]
