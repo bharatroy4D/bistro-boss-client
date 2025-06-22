@@ -5,7 +5,7 @@ import './Featured.css'
 
 const Featured = () => {
     return (
-        <div className='relative bg-featured py-10 my-12 bg-center '>
+        <div className='relative bg-fixed bg-featured py-10 my-12 bg-center '>
             <div className="absolute inset-0 bg-black/45"></div>
 
             <div className='relative z-10'>

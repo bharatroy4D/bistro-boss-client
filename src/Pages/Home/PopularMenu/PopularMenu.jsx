@@ -10,9 +10,9 @@ const PopularMenu = () => {
             .then(data => setItems(data))
     }, [])
     return (
-        <div>
-            <SectionTitle subHeading={'Check it out'} heading={'from our menu'} />
-            <div className='grid md:grid-cols-2 gap-5'>
+        <div className='my-10'>
+            <SectionTitle subHeading={'Check it out'} heading={'from our List'} />
+            <div className='grid md:grid-cols-2 gap-5 '>
                 {
                     items.map(item => <MenuItem key={item.id} item={item} />)
                 }
