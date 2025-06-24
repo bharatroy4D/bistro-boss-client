@@ -12,9 +12,9 @@ const PopularMenu = () => {
     return (
         <div className='my-10'>
             <SectionTitle subHeading={'Check it out'} heading={'from our List'} />
-            <div className='grid md:grid-cols-2 gap-5 '>
+            <div className='grid md:grid-cols-2 gap-10 '>
                 {
-                    items.map(item => <MenuItem key={item.id} item={item} />)
+                    items.slice(0, 6).map(item => <MenuItem key={item.id} item={item} />)
                 }
             </div>
 
