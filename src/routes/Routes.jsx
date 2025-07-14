@@ -5,6 +5,7 @@ import ContactUs from "../Pages/Contact us/ContactUs";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import OurMenu from "../Pages/OurMenu/OurMenu";
 import OurShop from "../Pages/OurShop/OurShop";
+import Login from "../Pages/Login/Login";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
             { path: '/dashboard', element: <Dashboard /> },
             { path: '/ourMenu', element: <OurMenu /> },
             { path: '/ourShop', element: <OurShop /> },
+            { path: '/login', element: <Login /> },
         ]
     },
 ]);
