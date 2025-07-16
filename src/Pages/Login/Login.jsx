@@ -1,19 +1,51 @@
-import React, { useEffect } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
-
+import React, { useContext, useEffect, useState } from 'react';
+import { loadCaptchaEnginge, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../Providers/authProvider';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const [disabled, setDisabled] = useState(true);
+    const { signIn } = useContext(AuthContext);
+
     useEffect(() => {
         loadCaptchaEnginge(6);
-    }, [])
+    }, []);
+
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User login successful',
+                    timer: 1500,
+                    showConfirmButton: false,
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.message,
+                });
+            });
     }
+
+    const handleValidateCaptcha = (e) => {
+        const user_captcha_value = e.target.value;
+        if (validateCaptcha(user_captcha_value)) {
+
+            setDisabled(false);
+        }
+    }
+
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
@@ -28,17 +60,36 @@ const Login = () => {
                     <form onSubmit={handleLogin} className="card-body">
                         <fieldset className="fieldset">
                             <label className="label">Email</label>
-                            <input type="email" name='email' className="input" placeholder="Email" />
+                            <input type="email" name="email" className="input" placeholder="Email" required />
                             <label className="label">Password</label>
-                            <input type="password" name='password' className="input" placeholder="Password" />
+                            <input type="password" name="password" className="input" placeholder="Password" required />
                             <div>
-                                <label className="label"> <LoadCanvasTemplate />
+                                <label className="label">
+                                    <LoadCanvasTemplateNoReload />
                                 </label>
-                                <input type="password" name='password' className="input" placeholder="Password" />
+                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" className="input" placeholder="Type captcha code" required />
+                              
                             </div>
-                            <div><a className="link link-hover">Forgot password?</a></div>
-                            <input className="btn btn-neutral mt-4" type="submit" value="Login" />
+                            <div>
+                                <a className="link link-hover">Forgot password?</a>
+                            </div>
+                            <input
+                                disabled={disabled}
+                                className="btn btn-neutral mt-4"
+                                type="submit"
+                                value="Login"
+                            />
                         </fieldset>
+                        <div>
+                            <p className="text-center">
+                                <small className="text-green-300">
+                                    New account?{' '}
+                                    <Link className="underline" to="/signUp">
+                                        Create a new account
+                                    </Link>
+                                </small>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>
